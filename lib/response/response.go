@@ -6,6 +6,7 @@ import (
 
 type Response struct {
 	Data    interface{} `json:"data"`
+	Code    int         `json:"code"`
 	Message string      `json:"message"`
 }
 
@@ -23,8 +24,8 @@ func Error(c *gin.Context, code int, message string) {
 	c.JSON(code, Response{Data: nil, Message: message})
 }
 
-func Json(c *gin.Context, code int, data interface{}) {
-	c.JSON(code, Response{Data: data, Message: "OK"})
+func Json(c *gin.Context, code int, data interface{}, message string) {
+	c.JSON(code, Response{Data: data, Code: code, Message: message})
 }
 
 func JsonPagination(c *gin.Context, code int, data interface{}, page, limit int, total int64) {
@@ -37,6 +38,7 @@ func JsonPagination(c *gin.Context, code int, data interface{}, page, limit int,
 				Total: total,
 			},
 		},
+		Code:    code,
 		Message: "OK",
 	})
 }

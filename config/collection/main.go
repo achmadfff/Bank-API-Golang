@@ -22,4 +22,10 @@ func MainRouter(db *gorm.DB, main *gin.RouterGroup) {
 		authRoute.POST("/login", userAuthCtrl.Login)
 		authRoute.POST("/logout", middleware.Auth(db), userAuthCtrl.Logout)
 	}
+	userTransCtrl := user.TransactionController(db)
+	transRoute := main.Group("payment")
+	{
+		transRoute.POST("/transaction", middleware.Auth(db), userTransCtrl.CreateTransaction)
+		transRoute.GET("/report", userTransCtrl.ReportTransaction)
+	}
 }

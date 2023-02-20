@@ -45,7 +45,7 @@ func (r *authRepository) Create(reqBody *model.ReqBodyRegister) error {
 	user.Email = reqBody.Email
 	user.EncryptedPassword = reqBody.Password
 	if reqBody.RoleID == "" {
-		user.RoleID = "1ca78238-8e40-4763-a20f-59b5b41791b1" // default superadmin
+		user.RoleID = "1ca78238-8e40-4763-a20f-59b5b41791b2"
 	}
 	return r.DB.Create(&user).Error
 }

@@ -9,7 +9,6 @@ import (
 	auth "Test_MNC_2/domain/user"
 	"Test_MNC_2/domain/user/repository"
 	authLib "Test_MNC_2/lib/auth"
-	"Test_MNC_2/lib/constant"
 	"Test_MNC_2/lib/response"
 )
 
@@ -22,11 +21,11 @@ func Auth(db *gorm.DB) gin.HandlerFunc {
 			c.Abort()
 			return
 		}
-		if user.Role.Name != "Super Admin" {
-			response.Error(c, http.StatusUnauthorized, constant.NotAuthorize)
-			c.Abort()
-			return
-		}
+		//if user.Role.Name != "Super Admin" {
+		//	response.Error(c, http.StatusUnauthorized, constant.NotAuthorize)
+		//	c.Abort()
+		//	return
+		//}
 
 		userStr, err := json.Marshal(&authLib.AuthData{
 			ID:        user.ID,

@@ -31,7 +31,7 @@ func (ac *authController) Register(context *gin.Context) {
 		response.Error(context, errStatus, err.Error())
 		return
 	}
-	response.Json(context, http.StatusOK, nil)
+	response.Json(context, http.StatusOK, nil, "Success Register Customer")
 }
 
 func (ac *authController) Login(context *gin.Context) {
@@ -45,7 +45,7 @@ func (ac *authController) Login(context *gin.Context) {
 		response.Error(context, errStatus, err.Error())
 		return
 	}
-	response.Json(context, http.StatusOK, resBody)
+	response.Json(context, http.StatusOK, resBody, "Success Login")
 }
 
 func (ac *authController) Logout(context *gin.Context) {
@@ -58,5 +58,5 @@ func (ac *authController) Logout(context *gin.Context) {
 		response.Error(context, errStatus, err.Error())
 		return
 	}
-	response.Json(context, http.StatusOK, nil)
+	response.Json(context, http.StatusOK, nil, "Success Logout")
 }

@@ -1,0 +1,291 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Customer Merchant API",
+    "description": "Api spec for Customer Merchant API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4001"
+    }
+  ],
+  "paths": {
+    "/v1/auth/register" : {
+      "post" : {
+        "description": "Register Customer",
+        "tags": ["Register API"],
+        "summary": "Register Customer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name" : {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200" : {
+            "description": "Success Register Customer",
+            "content": {
+              "application/json" : {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data" : {
+                      "type": "null"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/auth/login" : {
+      "post" : {
+        "description": "Login Customer",
+        "tags": ["Login API"],
+        "summary": "Login Customer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200" : {
+            "description": "Success Register Customer",
+            "content": {
+              "application/json" : {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data" : {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/auth/logout" : {
+      "post" : {
+        "description": "Logout Customer",
+        "tags": ["Logout API"],
+        "summary": "Logout Customer",
+        "security": [
+          {
+          "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200" : {
+            "description": "Success Logout Customer",
+            "content": {
+              "application/json" : {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data" : {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/payment/transaction" : {
+      "post" : {
+        "description": "Create Transaction",
+        "tags": ["Transaction"],
+        "summary": "Create Transaction",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "integer"
+                  },
+                  "merchantId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200" : {
+            "description": "Success Logout Customer",
+            "content": {
+              "application/json" : {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data" : {
+                      "type": "null"
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/payment/report" : {
+      "get" : {
+        "description": "Report Transaction",
+        "tags": ["Transaction"],
+        "summary": "Report Transaction",
+        "responses": {
+          "200" : {
+            "description": "Success Get Report Transaction",
+            "content": {
+              "application/json" : {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data" : {
+                      "type": "object",
+                      "properties": {
+                        "data" : {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "Amount": {
+                                "type": "integer"
+                              },
+                              "UserId": {
+                                "type": "string"
+                              },
+                              "MerchantId": {
+                                "type": "string"
+                              },
+                              "CreatedAt": {
+                                "type": "string"
+                              },
+                              "UpdatedAt": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "page": {
+                              "type": "integer"
+                            },
+                            "limit": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth" : {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
+

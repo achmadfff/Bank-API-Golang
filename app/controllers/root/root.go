@@ -7,5 +7,5 @@ import (
 )
 
 func Index(context *gin.Context) {
-	response.Json(context, http.StatusOK, nil)
+	response.Json(context, http.StatusOK, nil, "OK")
 }
