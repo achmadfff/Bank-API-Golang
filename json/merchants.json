@@ -1,0 +1,39 @@
+{
+  "merchant" : [
+    {
+      "id" : "bfdd663e-8167-45f3-91b2-b4cb11bf46c6",
+      "name": "Ayam Geprek",
+      "phone": "08321389312",
+      "address": "Cibinong",
+      "balance": 0
+    },
+    {
+      "id" : "87c43149-8757-4ecb-b99b-e60affd1eeb9",
+      "name": "Teguk",
+      "phone": "098312983",
+      "address": "Cibinong",
+      "balance": 0
+    },
+    {
+      "id" : "789c5424-e7ab-49da-9abd-0f1ff6a5c4ac",
+      "name": "Es Teh Indonesia",
+      "phone": "09830217301",
+      "address": "Cibinong",
+      "balance": 0
+    },
+    {
+      "id" : "71bb2e49-5c3a-4180-a567-ff1f41aa3d9f",
+      "name": "Street Boba",
+      "phone": "09832109312",
+      "address": "Cibinong",
+      "balance": 0
+    },
+    {
+      "id" : "d7049405-6a71-47a8-bf06-0c025d2e7a33",
+      "name": "Haus Indoneisa",
+      "phone": "0812938103",
+      "address": "Cibinong",
+      "balance": 0
+    }
+  ]
+}
